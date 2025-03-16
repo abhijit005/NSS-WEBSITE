@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: 'montserrat';
+  }
+
+  #cursor {
+    height: 20px;
+    width: 20px;
+    background-color: #f1ee15;
+    position: fixed;
+    z-index: 99;
+    border-radius: 50%;
+    pointer-events: none; /* Ensures it doesn't interfere */
+}
+
+#cursor-blur {
+    height: 400px;
+    width: 400px;
+    background-color: #85843758;
+    position: fixed;
+    z-index: 99;
+    border-radius: 50%;
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+#nav{
+    height: 145px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 150px;
+    gap: 50px;
+    position: fixed;
+    z-index: 99;
+    color: #fff;
+  }
+  
+  #nav img{
+    height: 100px;
+    width: 100px;
+  }
+  
+  #nav h4{
+    font-weight: 500;
+  }
+
+  #nav a{
+    display: flex;
+    justify-content: center;
+  }
+  
+  #nav a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .imagee img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+  }
+
+  #main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  #page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+    /* color: #00324c; */
+    /* background-color: #fff; */
+  }
+
+  #page1 h2{
+    color: #1E1B4B;
+  }
+  
+  #page1 h1{
+    color: #fff;
+    font-size: 80px;
+    font-weight: 900;
+    position: relative;
+  }
+  
+  #page1 h1::before{
+    content: "NSS VPPCOE&VA";
+    position: absolute;
+    color: #000;
+    top: -4px;
+    left: -4px;
+    -webkit-text-stroke: 3px #1a465d;
+    z-index: -1;
+  }
+  
+  #page1 h2{
+    font-size: 50px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #page1 p{
+    font-size: 22px;
+    font-weight: 500;
+    /* width: 50%; */
+  }
+
+  #page1 #img1{
+    height: 300px;
+    width: 395px;
+    position: absolute;
+    left: 1%;
+    top: 20%;
+    z-index: -3;
+  }
+
+  #page1 #img2{
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    right: 0%;
+    top: 15%;
+    z-index: -3;
+  }
+
+  #page1 #img3{
+    height: 300px;
+    width: 275px;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    z-index: 1;
+  }
+  
+  #page1 #img4{
+    height: 300px;
+    width: 275px;
+    position: absolute;
+    right: 20%;
+    bottom: 20%;
+    z-index: -3;
+  }
+
+  #page1 #img5{
+    height: 320px;
+    width: 250px;
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    z-index: -2;
+  }
+
+  #page1 #img6{
+    height: 300px;
+    width: 275px;
+    position: absolute;
+    left: 15%;
+    bottom: 10%;
+    z-index: -3;
+  }
+
+  #page1 #img7{
+    height: 250px;
+    width: 275px;
+    position: absolute;
+    right: 20%;
+    bottom: 0%;
+    z-index: -2;
+  }
+
+  #page1 #img8{
+    height: 200px;
+    width: 300px;
+    position: absolute;
+    left: 20%;
+    bottom: 0%;
+    z-index: -2;
+  }
+
+  #page1 #img9{
+    height: 300px;
+    width: 275px;
+    position: absolute;
+    right: 10%;
+    bottom: 20%;
+    z-index: -3;
+  }
+
+  #page2{
+    height: 50vh;
+    width: 100%;
+    z-index: 10;
+    color: #fff;
+    background-color: #1a465d;
+  }
+
+  #about-us img{
+    height: 220px;
+    width: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+    z-index: 10;
+  }
+  
+  #about-us-in{
+    text-align: center;
+    padding-left: 340px;
+    padding-right: 340px;
+  }
+
+  #about-us-in h1 p{
+    width: 50%;
+  }
+  
+  #about-us-in h3{
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 40px;
+  }
+  
+  #about-us-in p{
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  #about-us #logo1{
+    position:absolute;
+    left: 5%;
+    bottom: 45%;
+  }
+
+  #about-us #logo2{
+    position:absolute;
+    right: 5%;
+    bottom: 45%;
+  }
+
+  #page3{
+    min-height: 50vh;
+    width: 100%;
+    background-color: #fff;
+    color: #1a465d;
+  }
+
+  #why-nss {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.reasons-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.reason {
+    max-width: 400px;
+    text-align:left;
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 25px;
+}
+
+#page3>h1{
+  color: #1a465d;
+  text-align: center;
+  font-size: 40px;
+}
+
+#page4 {
+  min-height: 50vh;
+  width: 100%;
+  padding-top: 80px;
+  background-color: #fff;
+  color: #1a465d;
+  display: flex;
+  text-align: center;
+  justify-content: space-around; /* Evenly distribute the items */
+  align-items: center;
+  gap: 30px;
+}
+
+#vision,#mission {
+  width: 40%; /* Adjust the width */
+  opacity: 0; /* Initially hidden */
+  transform: translateX(-100px); /* Move text to the left */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Reveal Effect */
+.reveal.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
