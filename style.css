@@ -244,13 +244,13 @@
   #about-us #logo1{
     position:absolute;
     left: 5%;
-    bottom: 45%;
+    bottom: 55%;
   }
 
   #about-us #logo2{
     position:absolute;
     right: 5%;
-    bottom: 45%;
+    bottom: 55%;
   }
 
   #page3{
@@ -301,7 +301,7 @@ p {
 #page4 {
   min-height: 50vh;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 0px;
   background-color: #fff;
   color: #1a465d;
   display: flex;
@@ -311,17 +311,206 @@ p {
   gap: 30px;
 }
 
-#vision,#mission {
-  width: 40%; /* Adjust the width */
-  opacity: 0; /* Initially hidden */
-  transform: translateX(-100px); /* Move text to the left */
-  transition: opacity 1s ease-out, transform 1s ease-out;
+#vision, #mission {
+  overflow: hidden;
 }
 
-/* Reveal Effect */
-.reveal.active {
-  opacity: 1;
-  transform: translateX(0);
+.reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
+#page5{
+  min-height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  color: #1a465d;
+}
 
+#page5 h1{
+  font-size: 100px;
+  text-align: center;
+}
+
+.slider{
+  display: grid;
+  place-items: center;
+  height: 250px;
+  margin: auto;
+  position: relative;
+  width: 90%;
+  overflow: hidden;
+}
+
+.slide-track{
+  display: flex;
+  width: calc(250px * 18);
+  animation: scroll 40s linear infinite;
+}
+
+.slide-track:hover{
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0%{
+    transform: translateX(0);
+  }
+
+  100%{
+    transform: translateX(calc(-250px * 9));
+  }
+}
+
+.slide{
+  height: 200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  perspective: 100px;
+}
+
+.slide img{
+  height: 220px;
+  width: 250px;
+  transition: transform 1s;
+}
+
+.slide img:hover{
+  transform: translateZ(20px);
+}
+
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, rgba());
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  z-index: 2;
+}
+
+.slider::before{
+  left: 0;
+  right: 0;
+}
+
+.slider::after{
+  left: 0;
+  right: 0;
+  transform: rotateZ(180deg);
+}
+
+.event{
+  text-align: center;
+  padding-top: 30px;
+}
+
+/* From Uiverse.io by Li-Deheng */ 
+.btn-conteiner {
+  display: flex;
+  justify-content: center;
+  --color-text: #ffffff;
+  --color-background: #1a465d;
+  --color-outline: #ff145b80;
+  --color-shadow: #00000080;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  padding: 3px 20px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: 1s;
+  border-radius: 100px;
+  box-shadow: 0 0 0.2em 0 var(--color-background);
+}
+
+.btn-content:hover, .btn-content:focus {
+  transition: 0.5s;
+  -webkit-animation: btn-content 1s;
+  animation: btn-content 1s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+  transition: 0.5s;
+  margin-right: 0px;
+  transform: scale(0.6);
+}
+
+.btn-content:hover .icon-arrow {
+  transition: 0.5s;
+  margin-right: 25px;
+}
+
+.icon-arrow {
+  width: 10px;
+  margin-left: 10px;
+  position: relative;
+  top: 6%;
+}
+  
+/* SVG */
+#arrow-icon-one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+#arrow-icon-two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.btn-content:hover #arrow-icon-three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.btn-content:hover #arrow-icon-one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: var(--color-background);
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+/* Button animations */
+@-webkit-keyframes btn-content {
+  0% {
+    outline: 0.2em solid var(--color-background);
+    outline-offset: 0;
+  }
+}
+
+@keyframes btn-content {
+  0% {
+    outline: 0.2em solid var(--color-background);
+    outline-offset: 0;
+  }
+}

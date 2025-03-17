@@ -80,25 +80,56 @@ h4all.forEach(function (elem) {
         },
       });
 
-      document.addEventListener("DOMContentLoaded", function () {
-        function revealText() {
-            let reveals = document.querySelectorAll(".reveal");
-    
-            reveals.forEach((section) => {
-                let windowHeight = window.innerHeight;
-                let sectionTop = section.getBoundingClientRect().top;
-                let revealPoint = 150; // Adjust trigger point
-    
-                if (sectionTop < windowHeight - revealPoint) {
-                    section.classList.add("active");
-                } else {
-                    section.classList.remove("active"); // Remove when out of view
-                }
-            });
+      document.addEventListener('DOMContentLoaded', function() {
+        // Function to split text into spans
+        function splitTextIntoSpans(element) {
+          const text = element.innerText;
+          const words = text.split(' ');
+          element.innerHTML = '';
+          
+          words.forEach((word, index) => {
+            // Create span for each word
+            const span = document.createElement('span');
+            span.className = 'reveal-word';
+            span.style.opacity = '0';
+            span.style.transform = 'translateY(20px)';
+            span.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            span.style.transitionDelay = `${index * 0.1}s`;
+            span.innerText = word;
+            element.appendChild(span);
+            
+            // Add a space after each word (except the last word)
+            if (index < words.length - 1) {
+              const space = document.createTextNode(' ');
+              element.appendChild(space);
+            }
+          });
         }
-    
-        window.addEventListener("scroll", revealText);
-        revealText(); // Run once to check on page load
-    });
-    
-    
+        
+        // Apply to all paragraphs in vision and mission sections
+        const paragraphs = document.querySelectorAll('#vision p, #mission p');
+        paragraphs.forEach(p => splitTextIntoSpans(p));
+        
+        // Create observer for scrolling effect
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = entry.target.querySelectorAll('.reveal-word');
+              words.forEach((word, index) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.transform = 'translateY(0)';
+                }, index * 100);
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        
+        // Observe sections
+        document.querySelectorAll('#vision p, #mission p').forEach(section => {
+          observer.observe(section);
+        });
+      });
+
+      
